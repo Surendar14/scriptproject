@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <title>VOLUME OF THE CYLINDER</title>
+    <link rel="stylesheet" href="{% static 'css/mathscript.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="formview">
+            <div class="banner">
+                VOLUME OF A CYLINDER
+            </div>
+            <div class="content">
+                <form action="/mathvolume/" method="POST">
+                    {% csrf_token %}
+                    <div class="forminput">
+                        <label for="value_radius">RADIUS=</label>
+                        <input type="text" name="value_radius" id="value_radius" value="{{radius}}">
+                    </div>
+                    <div class="forminput">
+                        <label for="value_height">HEIGHT=</label>
+                        <input type="text" name="value_height" id="value_height" value="{{height}}">
+                    </div>
+                    <div class="forminput">
+                        <button type="submit" name="button_volume" id="button_volume">calculate volume</button>
+                    </div>
+                    <div class="forminput">
+                        {{result}}
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/mathscript.js"></script>
+</body>
+
+</html>
